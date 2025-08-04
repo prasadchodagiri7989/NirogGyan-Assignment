@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Rani Rao",
+    "specialization": "Cardiologist",
+    "image": "/doctor1.jpg",
+    "available": true
+  },
+  {
+    "id": 2,
+    "name": "Dr. Amar Singh",
+    "specialization": "Dentist",
+    "image": "/doctor2.jpg",
+    "available": false
+  },
+  {
+    "id": 3,
+    "name": "Dr. Sneha Iyer",
+    "specialization": "Dermatologist",
+    "image": "/doctor3.jpg",
+    "available": true
+  }
+]
