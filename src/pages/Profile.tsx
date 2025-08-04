@@ -25,7 +25,12 @@ const Profile = () => {
   const handleCancel = (index: number) => {
     const allAppointments: Appointment[] = JSON.parse(localStorage.getItem("appointments") || "[]");
     const updated = allAppointments.filter(
-      (a) => !(a.email === user?.email && a.date === appointments[index].date && a.time === appointments[index].time)
+      (a) =>
+        !(
+          a.email === user?.email &&
+          a.date === appointments[index].date &&
+          a.time === appointments[index].time
+        )
     );
     localStorage.setItem("appointments", JSON.stringify(updated));
     setAppointments((prev) => prev.filter((_, i) => i !== index));

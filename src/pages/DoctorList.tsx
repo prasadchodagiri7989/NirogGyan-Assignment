@@ -43,11 +43,14 @@ const DoctorList = () => {
             key={doctor.id}
             className="bg-secondary p-4 rounded-lg shadow-lg hover:bg-gray-800 transition"
           >
-            <img
-              src={doctor.image}
-              alt={doctor.name}
-              className="w-full h-40 object-cover rounded-md mb-3"
-            />
+<div className="w-32 h-32 mx-auto mb-6 rounded-full bg-amber-600 text-black flex items-center justify-center text-3xl font-bold shadow-md">
+  {doctor.name
+    .split(" ")
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase()}
+</div>
+
             <h2 className="text-xl font-bold">{doctor.name}</h2>
             <p className="text-gray-300">{doctor.specialization}</p>
             <p className={`mt-2 text-sm font-medium ${doctor.available ? "text-green-400" : "text-red-400"}`}>

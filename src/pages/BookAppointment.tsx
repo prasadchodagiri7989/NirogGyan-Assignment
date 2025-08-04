@@ -1,18 +1,25 @@
 // src/pages/BookAppointment.tsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import doctors from "../data/doctors.json";
 import Layout from "../components/Layout";
+import { useAuth } from "../context/AuthContext";
 
 const BookAppointment = () => {
   const { id } = useParams();
   const doctor = doctors.find((doc) => doc.id === parseInt(id || ""));
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const [patientName, setPatientName] = useState("");
   const [email, setEmail] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+
+  useEffect(() => {
+    if (user?.email) setEmail(user.email);
+    if (user?.name) setPatientName(user.name);
+  }, [user]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,7 +55,9 @@ const BookAppointment = () => {
     <Layout>
       <div className="max-w-lg mx-auto bg-secondary p-6 rounded-lg shadow-lg">
         <h1 className="text-2xl font-bold mb-2">Book Appointment</h1>
-        <p className="mb-4 text-gray-300">with <strong>{doctor.name}</strong> ({doctor.specialization})</p>
+        <p className="mb-4 text-gray-300">
+          with <strong>{doctor.name}</strong> ({doctor.specialization})
+        </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
