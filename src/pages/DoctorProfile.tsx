@@ -3,13 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import doctors from "../data/doctors.json";
 import Layout from "../components/Layout";
 
-interface Doctor {
-  id: number;
-  name: string;
-  specialization: string;
-  image: string;
-  available: boolean;
-}
+
 
 const DoctorProfile = () => {
   const { id } = useParams();
