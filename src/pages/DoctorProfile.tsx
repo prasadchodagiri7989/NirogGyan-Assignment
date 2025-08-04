@@ -1,5 +1,4 @@
 // src/pages/DoctorProfile.tsx
-import React from "react";
 import { useParams, Link } from "react-router-dom";
 import doctors from "../data/doctors.json";
 import Layout from "../components/Layout";
@@ -27,11 +26,14 @@ const DoctorProfile = () => {
   return (
     <Layout>
       <div className="max-w-3xl mx-auto bg-secondary p-6 rounded-lg shadow-lg">
-        <img
-          src={doctor.image}
-          alt={doctor.name}
-          className="w-full h-64 object-cover rounded-md mb-6"
-        />
+        <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-accent text-black flex items-center justify-center text-3xl font-bold shadow-md">
+  {doctor.name
+    .split(" ")
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase()}
+</div>
+
         <h1 className="text-3xl font-bold mb-2">{doctor.name}</h1>
         <p className="text-lg text-gray-300 mb-2">
           Specialization: {doctor.specialization}
